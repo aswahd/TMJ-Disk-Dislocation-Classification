@@ -74,7 +74,7 @@ class TrainerVanilla(TrainerAbstract):
 
         print("Model ({}) saved.".format(mode))
 
-    def loadModel(self, save_dir, mode="latest"):
+    def loadModel(self, save_dir, mode="latest", device='cuda'):
         # Load weights
         if mode == "latest":
             w_fname = self.WEIGHTS_LATEST_FNAME
@@ -82,7 +82,7 @@ class TrainerVanilla(TrainerAbstract):
             w_fname = self.WEIGHTS_BEST_FNAME
         else:
             raise Exception("Saving mode can be either latest or best.")
-        self.model.load_state_dict(torch.load(pJoin(save_dir, w_fname)))
+        self.model.load_state_dict(torch.load(pJoin(save_dir, w_fname), map_location=device))
         print("loaded the model weights - {}".format(mode))
 
         # Load history

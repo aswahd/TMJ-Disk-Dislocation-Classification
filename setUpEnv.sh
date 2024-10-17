@@ -1,9 +1,10 @@
+#!/bin/bash
 PWD=$(pwd)
 
 # These has to be set accordingly
 # export TRAIN_PATH="$HOME/Documents/Data/TMJ-ML/Data_formatted_2/train"
 # export TEST_PATH="$HOME/Documents/Data/TMJ-ML/Data_formatted_2/test"
-export TRAIN_PATH="./data-demo/train"
+export TRAIN_PATH="/home/assefa/Downloads/TMJData"
 export TEST_PATH="./data-demo/test"
 
 # The following can be kept intact
@@ -26,3 +27,4 @@ alias pklTools="python -m nnUNetTMJ.utils.pklTools"
 alias evalResult="python -m evaluation.evalResult -f"
 alias _removeAll="python -m test.delDirs"
 
+echo "Environment set up"

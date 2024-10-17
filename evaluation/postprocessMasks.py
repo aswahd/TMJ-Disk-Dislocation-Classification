@@ -18,8 +18,8 @@ def processCondyle(condyle_mask0, condyle_mask1, return_type="open contour"):
          ~"close contour": masks of close contours~
          ~"points": all points on the contour~
     """
-    squeeze_0 = condyle_mask0.astype(np.bool).any(axis=1)
-    squeeze_1 = condyle_mask1.astype(np.bool).any(axis=1)
+    squeeze_0 = condyle_mask0.astype(np.bool_).any(axis=1)
+    squeeze_1 = condyle_mask1.astype(np.bool_).any(axis=1)
     t_ = np.logical_and(squeeze_0, squeeze_1)
     start_line, end_line = _findRange(t_)
     end_line_refine = int((end_line - start_line) * 3 / 4 + start_line)
@@ -42,8 +42,8 @@ def processEminence(eminence_mask0, eminence_mask1, return_type="open contour"):
          "open contour": masks of open contours with thickness 1px
          "points": all points on the contour
     """
-    squeeze_0 = eminence_mask0.astype(np.bool).any(axis=0)
-    squeeze_1 = eminence_mask1.astype(np.bool).any(axis=0)
+    squeeze_0 = eminence_mask0.astype(np.bool_).any(axis=0)
+    squeeze_1 = eminence_mask1.astype(np.bool_).any(axis=0)
     t_ = np.logical_and(squeeze_0, squeeze_1)
     start_line, end_line = _findRange(t_)
     m0 = eminence_mask0.copy()
@@ -142,7 +142,7 @@ def postProc(mask1, mask2):
         m1_, m2_ = masks[NUM_LBL[i]]
         m1 = m1_ * i + m1 * (1 - m1_)
         m2 = m2_ * i + m2 * (1 - m2_)
-    return m1.astype(np.int), m2.astype(np.int)
+    return m1.astype(np.int_), m2.astype(np.int_)
 
 
 def postProc_old(mask1, mask2):

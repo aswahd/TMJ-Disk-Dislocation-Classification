@@ -14,7 +14,7 @@ from monsoonToolBox.logtools import logFuncOutput
 from monsoonToolBox.misc import lisJobParallel
 
 import matplotlib.pyplot as plt
-
+import pickle
 # from .machineCheck import JSON_LABEL_IDX_PTH, JSON_LABEL_MACHINE_PTH
 
 def split3DImg(img):
@@ -149,8 +149,10 @@ def main():
 
 	process_lis = []
 	npz_path = args.file
-
-	data = np.load(npz_path, allow_pickle=True)
+	# data = np.load(npz_path, allow_pickle=True)
+	with open(npz_path, "rb") as f:
+		data = pickle.load(f)
+  
 	imgs = imgs_ = data["imgs"]
 	imgs = filterDataByIndex(imgs, filter_index)
 	masks_ = data["masks"]
@@ -266,7 +268,6 @@ def main():
 	#########################2D
 	print("\n>>>>>>>>>>>>>>>>Calculating 2D eval...")
 	print("image count: ", image_count_2d)
-
 	disc_confusion = Bool1D.calcConfusionBinaryPrint(Stat1D.notZeros(disc_labels_2d), Stat1D.notZeros(disc_masks_2d), tag = "Disc.Confusion - 2D", indent = 8)
 	print("Disc detection accuracy: ", disc_confusion["TP"] + disc_confusion["TN"])
 	disc_recog_table = np.logical_and(Stat1D.notZeros(disc_labels_2d), Stat1D.notZeros(disc_masks_2d))

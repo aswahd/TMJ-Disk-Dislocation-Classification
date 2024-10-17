@@ -8,7 +8,7 @@ import numpy as np
 from monsoonToolBox.filetools import pJoin, subDirAndFiles, subDirs, subFiles
 from monsoonToolBox.misc import lisJobParallel, lisJobParallel_
 from monsoonToolBox.logtools import Timer
-from immarker.sc import showRGBIms
+# from immarker.sc import showRGBIms
 from labelSys.utils.labelReaderV2 import LabelSysReader
 
 DICOM_DIR = "/home/monsoon/Documents/Data/TMJ-ML/drive-download-20220322T053732Z-001"

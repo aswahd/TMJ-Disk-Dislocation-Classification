@@ -8,7 +8,7 @@ from monsoonToolBox.filetools import subDirs
 from monsoonToolBox.arraytools import Img2D
 from monsoonToolBox.misc import lisJobParallel_, lisJobParallel
 from labelSys.utils import LabelSysReader
-from immarker.sc import showRGBIms
+# from immarker.sc import showRGBIms
 from skimage.transform import resize
 from .config import TEMP_DIR
 
@@ -95,4 +95,4 @@ if __name__ == "__main__":
     imgs2 = normalizeAndResizeImgUINT8(imgs2, (256, 256))
     combine = [np.concatenate((img1, img2), axis=1) for img1, img2 in zip(imgs1, imgs2)]
     print(combine[0].shape)
-    showRGBIms(combine)
+    # showRGBIms(combine)

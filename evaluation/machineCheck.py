@@ -11,7 +11,7 @@ from monsoonToolBox.filetools import subDirs
 from monsoonToolBox.arraytools import Img2D
 from monsoonToolBox.misc import lisJobParallel_
 from labelSys.utils import LabelSysReader
-from immarker.sc import showRGBIms
+# from immarker.sc import showRGBIms
 from skimage.transform import resize
 
 JSON_SAVE_PATH_REVISED = "/home/monsoon/Documents/Data/TMJ-ML/machine_revised.json"
@@ -87,7 +87,7 @@ def showIdx(file_idx: int, label_idx: int):
     ]
     print(combine[0].shape)
 
-    showRGBIms(combine)
+    # showRGBIms(combine)
 
 
 if __name__ == '__main__':
